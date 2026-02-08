@@ -1,13 +1,12 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "Interactive romantic-themed Valentine web page (HTML/CSS/JS) with Yes/No prompt; No button evades hover/click, and Yes shows a 'Good choice' meme image; designed to run easily on iPad Chrome.",
   "architectural_notes": [
     "Single-file or static HTML/CSS/JS page intended to run locally in Chrome on iPad."
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Square meme-style image with the text \"Good choice\" in a romantic pink/white aesthetic (good-choice-meme.dim_800x800.png)",
   "existing_features": [
     {
       "id": "feature-create-a-single-page-romantic-themed-valentine-prompt-ui-that-asks-will-you-be-my-valentine-with-two-prominent-options-yes-and-no",
