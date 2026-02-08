@@ -1,0 +1,129 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine single-page prompt with evasive No button and Yes meme reveal (frontend-only)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement a single-page Valentine prompt UI with the question and prominent Yes/No options.",
+      "acceptanceCriteria": [
+        "The page shows a clear main question: \"Will you be my Valentine?\"",
+        "Two buttons are visible: \"Yes\" and \"No\"",
+        "All user-facing text is in English"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Implement the single-page Valentine prompt view in the app root, rendering the question text and two prominent actions (Yes/No). Use shadcn-ui components (e.g., Button/Card) for consistent UI composition; Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Confirm document title and base HTML are aligned with the single-purpose Valentine experience (no additional pages/routes introduced)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Make the No button evade interaction on desktop hover and on iPad/touch press so it cannot be clicked, while staying fully visible in its container.",
+      "acceptanceCriteria": [
+        "On desktop, when the cursor approaches/enters the \"No\" button area, the button relocates to a new position within the visible container",
+        "On iPad/touch, attempting to tap/press the \"No\" button causes it to move before a click/tap can be registered",
+        "The \"No\" button always remains fully visible within the main content area (does not move off-screen)",
+        "It is not possible to successfully click/tap the \"No\" button in normal use"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useEvasiveButton.ts",
+          "operation": "create",
+          "description": "Create a hook that computes safe randomized positions for the No button within a measured container (accounting for button size/padding) and exposes handlers for pointer/mouse/touch interactions to relocate it before click can register."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the evasive No behavior: wrap buttons in a bounded container, measure container/button dimensions, position the No button absolutely/relatively within bounds, and attach hover/pointerdown/touchstart handlers so it moves away pre-click (desktop + iPad)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "On Yes, transition to a celebratory success view showing the generated 'Good choice' meme image and de-emphasize/replace the prompt.",
+      "acceptanceCriteria": [
+        "Clicking/tapping \"Yes\" transitions to a success state",
+        "The success state prominently displays the generated meme image with readable text \"Good choice\"",
+        "The original \"Yes\"/\"No\" prompt is no longer the primary focus after clicking \"Yes\" (e.g., hidden or replaced)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add a Yes-driven success state that replaces the prompt UI with a celebratory view and renders the static meme image. Use shadcn-ui components (e.g., Card/Button) to keep layout consistent; Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Apply a cohesive romantic pink/white visual theme with simple, focused typography and decorative styling across both prompt and success views.",
+      "acceptanceCriteria": [
+        "The primary palette is pink and white, with appropriate contrast for readability",
+        "Layout remains intentionally simple with one clear call-to-action",
+        "Styling is consistent across the prompt and the \"Yes\" success view"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define/adjust global theme tokens and base styles to enforce a romantic pink/white palette and readable typography (without editing any files under frontend/src/components/ui)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Apply cohesive Tailwind-based layout/styling for both prompt and success states (simple centered layout, romantic accents), composing shadcn-ui components as needed; Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add the required generated meme image as a static frontend asset and render it directly from the frontend static path.",
+      "acceptanceCriteria": [
+        "Generated image files exist under frontend/public/assets/generated",
+        "The success view loads the meme image via a static path from the frontend",
+        "No backend endpoints are used for image delivery"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/good-choice-meme.dim_800x800.png",
+          "operation": "create",
+          "description": "Add the required generated asset file to the repository at the exact path frontend/public/assets/generated/good-choice-meme.dim_800x800.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference and render the static image frontend/public/assets/generated/good-choice-meme.dim_800x800.png in the success view via a frontend static asset path (no backend involvement)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Ensure iPad Chrome compatibility with responsive layout, large tap targets, and touch-safe interaction logic (not hover-only).",
+      "acceptanceCriteria": [
+        "Buttons are sized for touch (comfortable tap targets) and remain usable on tablet-sized screens",
+        "The \"No\" evasion behavior works on touch interaction (not just hover)",
+        "No horizontal scrolling is required on iPad-sized viewports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure responsive, iPad-friendly layout (no horizontal overflow) and large tap targets for both buttons; ensure No uses pointer/touch handlers in addition to hover for iPad Chrome."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/adjust global overflow and base responsive rules as needed to avoid horizontal scrolling on tablet viewports while preserving the romantic theme."
+        }
+      ]
+    }
+  ]
+}

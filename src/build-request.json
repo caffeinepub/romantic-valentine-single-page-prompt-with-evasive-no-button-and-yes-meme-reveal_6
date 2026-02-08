@@ -1,0 +1,140 @@
+{
+  "kind": "build_request",
+  "title": "Romantic Valentine single-page prompt with evasive No button and Yes meme reveal",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a single-page, romantic-themed Valentine prompt UI that asks: \"Will you be my Valentine?\" with two prominent options: \"Yes\" and \"No\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "Create an interactive web page as a surprise for my girlfriend... ask her to be my Valentine.\n\nThere should be two options: Yes or No."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The page shows a clear main question: \"Will you be my Valentine?\"",
+        "Two buttons are visible: \"Yes\" and \"No\"",
+        "All user-facing text is in English"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement interactive behavior for the \"No\" option so it moves away when the user attempts to interact with it (hover on desktop; pointer/touch interaction on iPad) such that it cannot be clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "When she hovers her cursor over No, it should move away so she cannot click it, forcing her to click only on Yes."
+        ]
+      },
+      "acceptanceCriteria": [
+        "On desktop, when the cursor approaches/enters the \"No\" button area, the button relocates to a new position within the visible container",
+        "On iPad/touch, attempting to tap/press the \"No\" button causes it to move before a click/tap can be registered",
+        "The \"No\" button always remains fully visible within the main content area (does not move off-screen)",
+        "It is not possible to successfully click/tap the \"No\" button in normal use"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "When the user clicks \"Yes\", replace the prompt UI with a celebratory view that displays a meme image containing the text: \"Good choice\".",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "When she clicks Yes, show her a meme image telling her \"Good choice"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking/tapping \"Yes\" transitions to a success state",
+        "The success state prominently displays the generated meme image with readable text \"Good choice\"",
+        "The original \"Yes\"/\"No\" prompt is no longer the primary focus after clicking \"Yes\" (e.g., hidden or replaced)"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Apply a cohesive romantic visual theme using a pink and white color scheme, including typography and decorative styling that feels romantic while keeping the page simple and focused on the single Valentine prompt purpose.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "The page should be simple, romantic-themed...",
+          "The page should be themed romantically with a pink and white color scheme"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The primary palette is pink and white, with appropriate contrast for readability",
+        "Layout remains intentionally simple with one clear call-to-action",
+        "Styling is consistent across the prompt and the \"Yes\" success view"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Add the required generated image(s) to the frontend as static assets under frontend/public/assets/generated and render them directly from the frontend (do not serve images from the backend).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated image files exist under frontend/public/assets/generated",
+        "The success view loads the meme image via a static path from the frontend",
+        "No backend endpoints are used for image delivery"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Ensure the page works well on iPad Chrome, including responsive layout, large tap targets, and interaction logic that does not rely solely on mouse hover.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-2"
+        ],
+        "quotes": [
+          "...so that I can easily run it on my iPad using Chrome."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Buttons are sized for touch (comfortable tap targets) and remain usable on tablet-sized screens",
+        "The \"No\" evasion behavior works on touch interaction (not just hover)",
+        "No horizontal scrolling is required on iPad-sized viewports"
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify files under frontend/src/components/ui (read-only UI components must be composed, not edited).",
+    "Do not modify files listed as immutable: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, and frontend/src/components/ui.",
+    "Backend must remain a single Motoko actor; however, this feature should be implemented without requiring backend changes."
+  ],
+  "nonGoals": [
+    "Internet Identity authentication",
+    "Persisting any user state on the backend",
+    "Adding additional pages or features beyond the Valentine prompt and the Yes success reveal"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Square meme-style image with the text \"Good choice\" in a romantic pink/white aesthetic (good-choice-meme.dim_800x800.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}

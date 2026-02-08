@@ -1,0 +1,6 @@
+{
+  "frontend/src/App.tsx": "Main Valentine's Day application component with two states: the initial question prompt with Yes/No buttons (where No evades interaction) and a success celebration view displaying the meme image after Yes is clicked.",
+  "frontend/src/hooks/useEvasiveButton.ts": "Custom React hook that manages the evasive behavior of the No button by tracking container/button dimensions and generating safe random positions within bounds, with handlers for mouse, pointer, and touch events to move the button before it can be clicked.",
+  "frontend/src/index.css": "Global styles with romantic pink/white OKLCH color theme, custom utility classes for romantic colors, and keyframe animations for floating hearts and heartbeat effects.",
+  "frontend/index.html": "HTML entry point with updated title for the Valentine's Day experience."
+}
