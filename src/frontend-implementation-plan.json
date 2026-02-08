@@ -1,6 +1,101 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Valentine surprise single-page prompt (no frontend changes required)",
-  "requirements": []
+  "title": "Multi-page Valentine flow + updated Reasons cards with heart micro-animations",
+  "requirements": [
+    {
+      "id": "REQ-21",
+      "summary": "Refactor the Valentine experience into a four-screen flow (Hero → Reasons → Proposal → Final Love Note) with persistent romantic theme, floating hearts, smooth animations, and gesture-safe background music across screens.",
+      "acceptanceCriteria": [
+        "The app presents four distinct pages/screens: Hero, Reasons I Love You, Proposal, and Final Love Note (not a single long page of sections).",
+        "The “Start” button on the Hero page navigates the user to the Reasons page.",
+        "The user can progress from Reasons to Proposal and from Proposal to Final Love Note via clear UI navigation (buttons/links), without requiring manual scrolling to reach the next experience.",
+        "Background music remains available across pages and continues to follow gesture-safe playback requirements (no forced autoplay on iPad Chrome).",
+        "No photo or gallery sections are added anywhere in the multi-page experience."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Replace the current scroll-based single-page sections with an explicit 4-screen state machine (Hero, Reasons, Proposal, Final). Wire navigation actions (Start/Next/Back/Continue) between screens; keep FloatingHearts, ConfettiBurst, and overall romantic theme. Continue using shadcn-ui Button/Card compositions for UI controls and containers; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HeroPage.tsx",
+          "operation": "create",
+          "description": "Create a dedicated Hero screen component containing the title/subtitle and “Start” CTA, designed to fill the viewport and trigger navigation to the Reasons screen. Use shadcn-ui Button for the CTA; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ReasonsPage.tsx",
+          "operation": "create",
+          "description": "Create a dedicated Reasons screen component that renders the Reasons grid and includes clear navigation controls (e.g., Back to Hero, Next to Proposal) without requiring scrolling to proceed. Use shadcn-ui Button for navigation; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ProposalPage.tsx",
+          "operation": "create",
+          "description": "Create a dedicated Proposal screen component preserving the existing Yes/No interaction (including evasive No behavior) and adding a clear navigation path to the Final Love Note screen (e.g., a Continue button that appears when appropriate). Use shadcn-ui Button for actions; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/FinalLoveNotePage.tsx",
+          "operation": "create",
+          "description": "Create a dedicated Final Love Note screen component (no gallery/photos) with the existing handwritten/cursive styling and a clear optional navigation action (e.g., restart/back) if desired. Use shadcn-ui Card for the note container; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/BackgroundMusic.tsx",
+          "operation": "modify",
+          "description": "Ensure background music behavior remains gesture-safe across screen navigation: keep the fixed control visible on all screens, avoid marking music as playing unless playback actually starts, and provide an explicit user control to start/stop playback if autoplay is blocked on iPad Chrome. Use shadcn-ui Button for controls; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "summary": "Update the Reasons screen to render exactly 8 interactive animated cards and pre-fill them with Abubakar’s provided messages verbatim.",
+      "acceptanceCriteria": [
+        "The Reasons page contains exactly 8 cards (no more, no fewer).",
+        "Each card displays one of the provided messages exactly as written (verbatim).",
+        "Cards have interactive animation: flip or glow on hover where available, and remain usable on touch devices (tap to reveal/flip works)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/content/reasons.ts",
+          "operation": "create",
+          "description": "Add a single exported constant list containing exactly 8 Reasons messages, matching Abubakar’s provided copy verbatim (including punctuation and ellipses), to be used as the sole data source for Reasons cards."
+        },
+        {
+          "path": "frontend/src/components/Reasons/ReasonCard.tsx",
+          "operation": "create",
+          "description": "Extract the existing flip-card UI into a reusable ReasonCard component that supports hover flip on desktop and tap-to-toggle on touch devices, using shadcn-ui Card/CardContent for structure. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ReasonsPage.tsx",
+          "operation": "modify",
+          "description": "Wire the Reasons page to import the 8-message list and render exactly 8 ReasonCard instances (no additional placeholders). Ensure navigation controls remain present and no photo/gallery content is introduced. Use shadcn-ui Button for navigation; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Remove the inline reasons array and any inline ReasonCard implementation from App, delegating Reasons rendering to ReasonsPage so the app guarantees exactly 8 cards with the new verbatim copy."
+        }
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "summary": "Add subtle heart-themed micro-animations on Reasons cards triggered by hover/flip/tap, optimized for smooth performance on iPad Chrome.",
+      "acceptanceCriteria": [
+        "Interacting with a Reasons card (hover on desktop and tap/flip on touch devices) triggers a subtle heart animation effect associated with that card.",
+        "Animations do not block scrolling or tapping, and do not noticeably degrade performance on iPad Chrome."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Reasons/ReasonCard.tsx",
+          "operation": "modify",
+          "description": "Add a lightweight, card-local heart micro-animation that triggers when the card flips/opens (and on hover where available), using minimal DOM elements and pointer-events-none overlays so it never blocks taps/clicks. Keep animation purely CSS-driven where possible for iPad Chrome performance. Verify shadcn-ui Card composition usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add the required CSS keyframes/utilities for the card-local heart micro-animation (subtle scale/float/fade), and any supporting utility classes needed by ReasonCard. Ensure animations are lightweight and do not introduce global scrolling dependencies."
+        }
+      ]
+    }
+  ]
 }

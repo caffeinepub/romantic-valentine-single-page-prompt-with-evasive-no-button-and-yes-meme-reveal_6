@@ -1,4 +1,68 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-convert-the-current-single-page-scrollable-valentine-experience-into-a-multi-page-website-flow-with-four-pages-1-hero-2-reasons-i-love-you-3-proposal-and-4-final-love-note-while-keeping-the-existing-romantic-theme-floating-hearts-smooth-animations-and-background-music-behavior",
+      "featureTitle": "Convert the current single-page, scrollable Valentine experience into a multi-page website flow with four pages: (1) Hero, (2) Reasons I Love You, (3) Proposal, and (4) Final Love Note, while keeping the existing romantic theme, floating hearts, smooth animations, and background music behavior.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BackgroundMusic.tsx",
+        "frontend/src/pages/FinalLoveNotePage.tsx",
+        "frontend/src/pages/HeroPage.tsx",
+        "frontend/src/pages/ProposalPage.tsx",
+        "frontend/src/pages/ReasonsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-21"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-in-the-reasons-i-love-you-page-render-exactly-8-animated-interactive-cards-flip-and-or-glow-behavior-and-pre-fill-each-card-with-the-exact-messages-provided-by-abubakar-verbatim-including-punctuation-and-ellipses",
+      "featureTitle": "In the “Reasons I Love You” page, render exactly 8 animated interactive cards (flip and/or glow behavior) and pre-fill each card with the exact messages provided by Abubakar (verbatim, including punctuation and ellipses).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Reasons/ReasonCard.tsx",
+        "frontend/src/content/reasons.ts",
+        "frontend/src/pages/ReasonsPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-22"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-soft-heart-themed-micro-animations-to-the-reasons-i-love-you-cards-so-that-hovering-or-flipping-tapping-a-card-triggers-a-subtle-romantic-heart-effect-while-keeping-performance-smooth-on-ipad-chrome",
+      "featureTitle": "Add soft heart-themed micro-animations to the “Reasons I Love You” cards so that hovering or flipping/tapping a card triggers a subtle romantic heart effect, while keeping performance smooth on iPad Chrome.",
+      "files": [
+        "frontend/src/components/Reasons/ReasonCard.tsx",
+        "frontend/src/index.css"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-23"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

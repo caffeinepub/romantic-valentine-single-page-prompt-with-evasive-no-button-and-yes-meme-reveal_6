@@ -1,19 +1,82 @@
 {
   "kind": "build_request",
-  "title": "Valentine surprise single-page prompt (no changes requested; already implemented)",
+  "title": "Convert Valentine proposal experience into a multi-page flow and update Reasons card copy",
   "priority": "normal",
-  "requirements": [],
+  "requirements": [
+    {
+      "id": "REQ-21",
+      "text": "Convert the current single-page, scrollable Valentine experience into a multi-page website flow with four pages: (1) Hero, (2) Reasons I Love You, (3) Proposal, and (4) Final Love Note, while keeping the existing romantic theme, floating hearts, smooth animations, and background music behavior.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a romantic, interactive multiple-page website for a Virtual Valentine’s Day Proposal from Abubakar to his girlfriend Ayesha."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The app presents four distinct pages/screens: Hero, Reasons I Love You, Proposal, and Final Love Note (not a single long page of sections).",
+        "The “Start” button on the Hero page navigates the user to the Reasons page.",
+        "The user can progress from Reasons to Proposal and from Proposal to Final Love Note via clear UI navigation (buttons/links), without requiring manual scrolling to reach the next experience.",
+        "Background music remains available across pages and continues to follow gesture-safe playback requirements (no forced autoplay on iPad Chrome).",
+        "No photo or gallery sections are added anywhere in the multi-page experience."
+      ]
+    },
+    {
+      "id": "REQ-22",
+      "text": "In the “Reasons I Love You” page, render exactly 8 animated interactive cards (flip and/or glow behavior) and pre-fill each card with the exact messages provided by Abubakar (verbatim, including punctuation and ellipses).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "In the “Reasons I Love You” section, create 8 animated cards. Each card must already contain the following romantic messages from Abubakar to Ayesha:",
+          "“I love you because your smile fixes my worst days without even trying.”",
+          "“I love you because you understand me in ways no one else ever could.”",
+          "“I love you because talking to you never feels enough — I always want more time.”",
+          "“I love you because your presence brings peace to my chaos.”",
+          "“I love you because you are cute, caring, and thori si nakhre wali in the most adorable way.”",
+          "“I love you because you motivate me to become a better man every single day.”",
+          "“I love you because life feels lighter, happier, and more meaningful with you in it.”",
+          "“I love you because out of everyone in this world… you chose me.”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The Reasons page contains exactly 8 cards (no more, no fewer).",
+        "Each card displays one of the provided messages exactly as written (verbatim).",
+        "Cards have interactive animation: flip or glow on hover where available, and remain usable on touch devices (tap to reveal/flip works)."
+      ]
+    },
+    {
+      "id": "REQ-23",
+      "text": "Add soft heart-themed micro-animations to the “Reasons I Love You” cards so that hovering or flipping/tapping a card triggers a subtle romantic heart effect, while keeping performance smooth on iPad Chrome.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Cards should flip or glow on hover with soft heart animations."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Interacting with a Reasons card (hover on desktop and tap/flip on touch devices) triggers a subtle heart animation effect associated with that card.",
+        "Animations do not block scrolling or tapping, and do not noticeably degrade performance on iPad Chrome."
+      ]
+    }
+  ],
   "constraints": [
-    "Do not edit files under frontend/src/components/ui (compose them only).",
-    "Do not modify files listed in frontend.immutablePaths: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
-    "Keep all backend logic (if any) in the single Motoko actor at backend/main.mo; add backend/migration.mo only if persistent state needs upgrading.",
-    "Render any generated images from static assets under frontend/public/assets/generated; do not serve images from the backend."
+    "Do not add any photo or gallery sections anywhere in the app.",
+    "Keep the existing romantic design direction: soft red/pink tones, floating hearts, smooth animations, romantic cursive/handwritten fonts, and gentle background instrumental music.",
+    "Do not edit any files under frontend/src/components/ui or other paths listed in frontend.immutablePaths; compose them instead.",
+    "Backend remains a single Motoko actor (no additional backend services)."
   ],
   "nonGoals": [
-    "Add additional pages, navigation, or features beyond the single Valentine prompt and celebration view.",
-    "Add third-party authentication providers beyond Internet Identity.",
-    "Add real-time features (WebSockets/chat/push notifications).",
-    "Add an external database or backend services."
+    "Adding or changing backend functionality (the backend actor can remain empty).",
+    "Adding third-party authentication beyond existing Internet Identity scaffolding.",
+    "Adding any user-uploaded images, photo galleries, or personal photo sections."
   ],
   "imageRequirements": {
     "required": [],

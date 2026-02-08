@@ -1,9 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
-  "summary": "Interactive romantic-themed Valentine web page (HTML/CSS/JS) with Yes/No prompt; No button evades hover/click, and Yes shows a 'Good choice' meme image; designed to run easily on iPad Chrome.",
+  "projectStateVersion": 11,
+  "summary": "Multi-page (instead of single-page) interactive virtual Valentine’s Day proposal website from Abubakar to Ayesha with a magical/emotional/playful red/pink theme, floating hearts background, smooth animations, romantic cursive fonts, and gentle background instrumental music. Includes a full-screen Hero page/section with Start that scrolls/navigates to content, a “Reasons I Love You” experience featuring exactly 8 animated cards with the provided messages, a main Proposal experience with Yes/No where No evasively dodges and becomes impossible to click (with playful messages), and a final handwritten-style love note. No photo/gallery sections.",
   "architectural_notes": [
-    "Single-file or static HTML/CSS/JS page intended to run locally in Chrome on iPad."
+    "Prefer CSS/JS-generated visuals (floating hearts/confetti) instead of static meme images; avoid photo/gallery sections.",
+    "Update implementation to support a multi-page site structure (instead of a single-page layout) while keeping iPad Chrome-friendly interactions and animations."
   ],
   "known_issues": [],
   "isFixRequest": false,
@@ -55,6 +56,142 @@
         "REQ-6"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-update-the-first-page-prompt-copy-to-match-the-user-s-requested-text-the-main-title-must-be-exactly-ayesha-will-you-be-my-valentine-and-the-bottom-text-on-the-first-page-must-be-exactly-from-abubakar",
+      "title": "Update the first-page prompt copy to match the user’s requested text: the main title must be exactly \"ayesha will you be my valentine\" and the bottom text on the first page must be exactly \"from Abubakar\".",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-change-the-no-interaction-so-that-tapping-clicking-no-is-allowed-and-causes-the-yes-button-to-grow-larger-each-time-no-is-clicked-creating-a-forced-to-click-yes-effect-remove-disable-the-current-evasive-no-behavior",
+      "title": "Change the \"No\" interaction so that tapping/clicking \"No\" is allowed and causes the \"Yes\" button to grow larger each time \"No\" is clicked (creating a forced-to-click-Yes effect). Remove/disable the current evasive \"No\" behavior.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-celebratory-second-page-content-so-that-after-clicking-yes-the-page-displays-the-text-i-know-you-d-say-yes-and-also-displays-the-text-i-love-you-so-much-along-with-a-cute-meme-image",
+      "title": "Update the celebratory second page content so that, after clicking \"Yes\", the page displays the text \"I know you'd say yes\" and also displays the text \"I love you so much\", along with a cute meme image.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-browser-tab-page-title-title-in-frontend-index-html-to-match-the-first-page-heading-ayesha-will-you-be-my-valentine",
+      "title": "Update the browser tab/page title (<title> in frontend/index.html) to match the first page heading: \"ayesha will you be my valentine\".",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-current-two-state-prompt-vs-answered-ui-with-a-single-page-multi-section-layout-that-includes-1-a-full-screen-hero-section-2-a-reasons-i-love-you-section-3-a-proposal-section-and-4-a-final-love-note-section-the-page-must-not-include-any-photo-or-gallery-sections",
+      "title": "Replace the current two-state (prompt vs. answered) UI with a single-page, multi-section layout that includes: (1) a full-screen Hero section, (2) a “Reasons I Love You” section, (3) a “Proposal” section, and (4) a “Final Love Note” section. The page must not include any photo or gallery sections.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-hero-section-as-a-full-screen-viewport-height-intro-with-a-romantic-animated-background-floating-hearts-a-big-glowing-heading-exactly-ayesha-will-you-be-my-valentine-subtext-exactly-from-abubakar-with-all-his-heart-and-a-glowing-start-button-that-smoothly-scrolls-the-user-to-the-next-section",
+      "title": "Implement the Hero section as a full-screen (viewport-height) intro with a romantic animated background (floating hearts), a big glowing heading exactly: “Ayesha, Will You Be My Valentine?”, subtext exactly: “From Abubakar, with all his heart.”, and a glowing “Start” button that smoothly scrolls the user to the next section.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-reasons-i-love-you-section-containing-6-8-animated-cards-with-sweet-reasons-why-abubakar-loves-ayesha-cards-must-have-interactive-animation-flip-or-glow-on-hover-where-available-while-still-being-usable-on-touch-devices-scrolling-into-the-section-should-feel-smooth-and-animated",
+      "title": "Add a “Reasons I Love You” section containing 6–8 animated cards with sweet reasons why Abubakar loves Ayesha. Cards must have interactive animation (flip or glow) on hover where available, while still being usable on touch devices. Scrolling into the section should feel smooth and animated.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-proposal-section-as-the-most-prominent-section-on-the-page-with-a-centered-romantic-message-and-big-animated-text-exactly-ayesha-will-you-be-my-valentine-include-two-buttons-labeled-yes-and-no",
+      "title": "Implement the “Proposal” section as the most prominent section on the page, with a centered romantic message and big animated text exactly: “Ayesha, Will You Be My Valentine?”. Include two buttons labeled “Yes ❤️” and “No 🙈”.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-playful-evasive-behavior-for-the-no-button-in-the-proposal-section-when-ayesha-attempts-to-click-tap-hover-approach-it-the-button-should-move-away-change-position-dodge-the-cursor-and-or-shrink-it-must-show-rotating-funny-messages-such-as-nice-try-are-you-sure-think-again-and-this-button-doesn-t-work-for-you-the-interaction-must-eventually-make-it-impossible-to-press-no",
+      "title": "Implement playful evasive behavior for the “No 🙈” button in the Proposal section: when Ayesha attempts to click/tap/hover/approach it, the button should move away (change position), dodge the cursor, and/or shrink. It must show rotating funny messages such as “Nice try 😜”, “Are you sure? Think again 💕”, and “This button doesn’t work for you 😌”. The interaction must eventually make it impossible to press “No 🙈”.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-when-yes-is-clicked-in-the-proposal-section-trigger-celebratory-animations-hearts-explosion-and-confetti-and-reveal-the-romantic-confirmation-message-exactly-you-just-made-abubakar-the-happiest-person-alive-this-should-occur-within-the-single-page-flow-do-not-navigate-to-a-separate-page-view",
+      "title": "When “Yes ❤️” is clicked in the Proposal section, trigger celebratory animations (hearts explosion and confetti) and reveal the romantic confirmation message exactly: “You just made Abubakar the happiest person alive ❤️”. This should occur within the single-page flow (do not navigate to a separate page/view).",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-final-love-note-section-containing-the-handwritten-style-message-exactly-ayesha-you-are-my-today-and-all-of-my-tomorrows-forever-yours-abubakar-use-a-romantic-cursive-handwritten-typography-style-for-this-section",
+      "title": "Add a “Final Love Note” section containing the handwritten-style message exactly: “Ayesha, you are my today and all of my tomorrows. Forever yours, Abubakar.” Use a romantic cursive/handwritten typography style for this section.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-gentle-background-instrumental-music-with-user-friendly-playback-behavior-appropriate-for-ipad-chrome-e-g-user-initiated-start-provide-clear-unobtrusive-playback-controls-play-pause-without-disrupting-the-romantic-aesthetic",
+      "title": "Add gentle background instrumental music with user-friendly playback behavior appropriate for iPad Chrome (e.g., user-initiated start). Provide clear, unobtrusive playback controls (play/pause) without disrupting the romantic aesthetic.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-browser-tab-page-title-to-exactly-ayesha-will-you-be-my-valentine-matching-the-hero-proposal-heading-capitalization-and-punctuation",
+      "title": "Update the browser tab/page title to exactly: “Ayesha, Will You Be My Valentine?” (matching the Hero/Proposal heading capitalization and punctuation).",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-overall-design-feels-magical-emotional-and-playful-using-soft-red-pink-tones-floating-hearts-smooth-animations-and-romantic-cursive-fonts-while-keeping-the-site-focused-on-the-proposal-no-unrelated-sections",
+      "title": "Ensure the overall design feels magical, emotional, and playful using soft red/pink tones, floating hearts, smooth animations, and romantic cursive fonts, while keeping the site focused on the proposal (no unrelated sections).",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-convert-the-current-single-page-scrollable-valentine-experience-into-a-multi-page-website-flow-with-four-pages-1-hero-2-reasons-i-love-you-3-proposal-and-4-final-love-note-while-keeping-the-existing-romantic-theme-floating-hearts-smooth-animations-and-background-music-behavior",
+      "title": "Convert the current single-page, scrollable Valentine experience into a multi-page website flow with four pages: (1) Hero, (2) Reasons I Love You, (3) Proposal, and (4) Final Love Note, while keeping the existing romantic theme, floating hearts, smooth animations, and background music behavior.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-in-the-reasons-i-love-you-page-render-exactly-8-animated-interactive-cards-flip-and-or-glow-behavior-and-pre-fill-each-card-with-the-exact-messages-provided-by-abubakar-verbatim-including-punctuation-and-ellipses",
+      "title": "In the “Reasons I Love You” page, render exactly 8 animated interactive cards (flip and/or glow behavior) and pre-fill each card with the exact messages provided by Abubakar (verbatim, including punctuation and ellipses).",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-soft-heart-themed-micro-animations-to-the-reasons-i-love-you-cards-so-that-hovering-or-flipping-tapping-a-card-triggers-a-subtle-romantic-heart-effect-while-keeping-performance-smooth-on-ipad-chrome",
+      "title": "Add soft heart-themed micro-animations to the “Reasons I Love You” cards so that hovering or flipping/tapping a card triggers a subtle romantic heart effect, while keeping performance smooth on iPad Chrome.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -65,20 +202,62 @@
       "status": "pending"
     },
     {
-      "id": "AR-2",
-      "summary": "Implement Yes/No options where the No button moves away on hover to prevent clicking",
+      "id": "AR-6",
+      "summary": "Customize first page copy: title \"ayesha will you be my valentine\" and footer text \"from Abubakar\"",
       "reqIds": [],
       "status": "pending"
     },
     {
-      "id": "AR-3",
-      "summary": "On Yes click, display a meme image with the text 'Good choice'",
+      "id": "AR-7",
+      "summary": "Add full-screen Hero section with floating hearts animated background, glowing heading/subtext, and Start button that smoothly scrolls down",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Add “Reasons I Love You” section with 6–8 animated/interactive cards (flip or glow on hover) and smooth scroll animations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Change Proposal section interaction so the “No” button dodges/moves/shrinks and shows playful messages, eventually becoming impossible to click; “Yes” triggers hearts/confetti and a romantic confirmation message",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Add gentle background instrumental music with user-friendly playback behavior appropriate for iPad Chrome",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Add Final Love Note section with handwritten-style typography and the provided message text",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Ensure site has no photo/gallery sections and relies on CSS/animation elements instead of personal photos",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Change site structure from single-page multi-section to a multi-page website while preserving the specified Hero/Reasons/Proposal/Love Note flow and interactions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "In the “Reasons I Love You” section, use exactly 8 cards pre-filled with the user-provided messages (fixed copy) and include flip/glow + soft heart animations",
       "reqIds": [],
       "status": "pending"
     }
   ],
   "gameProjectType": "none",
-  "projectName": "Romantic Valentine single-page prompt with evasive No button and Yes meme reveal",
+  "projectName": "Virtual Valentine’s Day Proposal single-page interactive site (Ayesha & Abubakar)",
   "clarification_mode": "instant",
   "clarification_rounds": 0
 }

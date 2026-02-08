@@ -65,6 +65,14 @@ export default {
                     'accent-foreground': 'oklch(var(--sidebar-accent-foreground))',
                     border: 'oklch(var(--sidebar-border))',
                     ring: 'oklch(var(--sidebar-ring))'
+                },
+                romantic: {
+                    accent: 'oklch(var(--romantic-accent))',
+                    'accent-dark': 'oklch(var(--romantic-accent-dark))',
+                    light: 'oklch(var(--romantic-light))',
+                    lighter: 'oklch(var(--romantic-lighter))',
+                    dark: 'oklch(var(--romantic-dark))',
+                    medium: 'oklch(var(--romantic-medium))'
                 }
             },
             borderRadius: {
@@ -74,6 +82,10 @@ export default {
             },
             boxShadow: {
                 xs: '0 1px 2px 0 rgba(0,0,0,0.05)'
+            },
+            fontFamily: {
+                cursive: ['Great Vibes', 'cursive'],
+                handwritten: ['Dancing Script', 'cursive']
             },
             keyframes: {
                 'accordion-down': {

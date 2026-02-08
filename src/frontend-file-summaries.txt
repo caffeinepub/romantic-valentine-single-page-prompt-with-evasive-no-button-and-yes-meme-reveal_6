@@ -1,6 +1,16 @@
 {
-  "frontend/src/App.tsx": "Main Valentine's Day application component with two states: the initial question prompt with Yes/No buttons (where No evades interaction) and a success celebration view displaying the meme image after Yes is clicked.",
-  "frontend/src/hooks/useEvasiveButton.ts": "Custom React hook that manages the evasive behavior of the No button by tracking container/button dimensions and generating safe random positions within bounds, with handlers for mouse, pointer, and touch events to move the button before it can be clicked.",
-  "frontend/src/index.css": "Global styles with romantic pink/white OKLCH color theme, custom utility classes for romantic colors, and keyframe animations for floating hearts and heartbeat effects.",
-  "frontend/index.html": "HTML entry point with updated title for the Valentine's Day experience."
+  "frontend/src/App.tsx": "Main app component managing state-based navigation between four distinct screens (Hero, Reasons, Proposal, Final) with background music control and footer.",
+  "frontend/src/hooks/useEvasiveButton.ts": "Custom hook managing evasive No button behavior with position tracking, message rotation through 6 funny messages, progressive shrinking, and handlers for pointer/touch events to make the button dodge interaction attempts.",
+  "frontend/src/index.css": "Global styles with romantic pink OKLCH color theme, cursive/handwritten fonts, 3D card flip utilities, and comprehensive keyframe animations for hearts, glowing, floating, and fading effects.",
+  "frontend/index.html": "HTML entry point with the exact personalized title \"Ayesha, Will You Be My Valentine?\" for the browser tab.",
+  "frontend/src/components/FloatingHearts.tsx": "Reusable component that renders 25 animated floating heart icons with randomized positions, delays, and durations for romantic background decoration.",
+  "frontend/src/components/ConfettiBurst.tsx": "Animated confetti and hearts burst overlay component that triggers on Yes click, creating 100 particles with physics-based movement that disappear after 4 seconds.",
+  "frontend/src/components/BackgroundMusic.tsx": "Background music controller with gesture-safe playback, mute toggle button, and automatic play attempt when shouldPlay is true.",
+  "frontend/src/pages/HeroPage.tsx": "Hero landing page with animated title, subtitle, floating hearts background, and Start button that triggers navigation to Reasons page.",
+  "frontend/src/pages/ReasonsPage.tsx": "Reasons page displaying 8 animated flip cards with romantic messages, navigation buttons to go back or continue to Proposal.",
+  "frontend/src/pages/ProposalPage.tsx": "Proposal page with Yes/No buttons, evasive No button behavior, confetti burst on Yes, and Continue button to proceed to Final page.",
+  "frontend/src/pages/FinalLoveNotePage.tsx": "Final love note page displaying handwritten romantic message in a card with animated hearts and restart button.",
+  "frontend/src/content/reasons.ts": "Data file containing exactly 8 romantic messages from Abubakar to Ayesha as provided in the requirements.",
+  "frontend/src/components/Reasons/ReasonCard.tsx": "Reusable flip card component with hover/tap interaction, 3D flip animation, and floating hearts micro-animation on interaction.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with romantic color tokens, cursive/handwritten font families, and custom animation keyframes."
 }
